@@ -98,8 +98,6 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
-        private int _animIDBoxing;
-
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
 #endif
@@ -161,13 +159,6 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
-
-            _animator.SetBool(_animIDBoxing, false);
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                //_animator.SetTrigger("Boxing");
-                _animator.SetBool(_animIDBoxing, true);
-            }
         }
 
         private void LateUpdate()
@@ -182,8 +173,6 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
-
-            _animIDBoxing = Animator.StringToHash("Boxing");
         }
 
         private void GroundedCheck()
